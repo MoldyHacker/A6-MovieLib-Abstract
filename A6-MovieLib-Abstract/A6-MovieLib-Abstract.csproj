@@ -10,16 +10,25 @@
 
   <ItemGroup>
     <None Remove="Data\moviesTrunc.csv" />
+    <None Remove="Data\shows.csv" />
+    <None Remove="Data\videos.csv" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Data\moviesTrunc.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Data\shows.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\videos.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="BetterConsoleTables" Version="1.1.3" />
+    <PackageReference Include="CsvHelper" Version="28.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />

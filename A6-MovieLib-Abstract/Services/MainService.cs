@@ -11,12 +11,17 @@ namespace A6_MovieLib_Abstract.Services
     {
         public void Invoke()
         {
-            string input;
+            string? input;
             do
             {
-                Console.WriteLine("Which media type should be displayed?");
+                Console.Write("Which media type should be displayed?\n" +
+                                  "1. Movies\n" +
+                                  "2. Shows\n" +
+                                  "3. Videos\n" +
+                                  "4. Exit\n" +
+                                  "> ");
                 input = Console.ReadLine();
-                Media media = null;
+                Media? media = null;
                 switch (input)
                 {
                 case "1":
@@ -34,12 +39,9 @@ namespace A6_MovieLib_Abstract.Services
                     break;
                 }
 
-                // if (input == "1")
-                //     media = new Movie();
-                // else if (input == "2")
-                //     media = new Show();
+                Console.WriteLine(media?.Display());
+                
 
-                media?.Display();
             } while (input != "4");
             
         }

@@ -10,7 +10,6 @@ namespace A6_MovieLib_Abstract.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
-
         public abstract string Display();
     }
 }
