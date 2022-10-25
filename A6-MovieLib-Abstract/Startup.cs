@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using A6_MovieLib_Abstract.Dao;
+using A6_MovieLib_Abstract.Models;
 using Microsoft.Extensions.Logging;
 
 namespace A6_MovieLib_Abstract
@@ -22,7 +24,12 @@ namespace A6_MovieLib_Abstract
             });
 
             // Add new lines of code here to register any interfaces and concrete services you create
-            services.AddSingleton<IMainService, MainService>();
+            services.AddTransient<IMainService, MainService>();
+            services.AddSingleton<IRepositoryBasic, MovieRepository>();
+            services.AddSingleton<IRepository<Movie>>(_ => DataServiceFactory.GetRepositoryInstance<Movie, Repository<Movie>>());
+            // services.AddSingleton<IRepositoryBasic, ShowRepository>();
+            // services.AddSingleton<IRepositoryBasic, VideoRepository>();
+
 
             return services.BuildServiceProvider();
         }
