@@ -7,7 +7,7 @@ using A6_MovieLib_Abstract.Models;
 
 namespace A6_MovieLib_Abstract.Dao
 {
-    public interface IRepositoryBasic
+    public interface IRepositoryBasic<T> where T : class
     {
         void Add(Media media);
         List<Media> Get();

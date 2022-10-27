@@ -7,7 +7,7 @@ using A6_MovieLib_Abstract.Models;
 
 namespace A6_MovieLib_Abstract.Dao
 {
-    public class MovieRepository : IRepositoryBasic
+    public class MovieRepository : IRepositoryBasic<Movie>
     {
         private Context _context;
 
@@ -28,7 +28,7 @@ namespace A6_MovieLib_Abstract.Dao
 
         public IEnumerable<Media> Search(string searchText)
         {
-            return _context.Movies.Where(m => m.title.ToLower().Contains(searchText.ToLower()));
+            return _context.Movies.Where(m => m.title.ToLower().Contains(searchText.ToLower(), StringComparison.CurrentCultureIgnoreCase)).ToList();
         }
 
 

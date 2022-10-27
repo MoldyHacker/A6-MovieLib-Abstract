@@ -25,8 +25,11 @@ namespace A6_MovieLib_Abstract
 
             // Add new lines of code here to register any interfaces and concrete services you create
             services.AddTransient<IMainService, MainService>();
-            services.AddSingleton<IRepositoryBasic, MovieRepository>();
-            services.AddSingleton<IRepository<Movie>>(_ => DataServiceFactory.GetRepositoryInstance<Movie, Repository<Movie>>());
+            services.AddSingleton<IRepositoryBasic<Movie>, MovieRepository>();
+            services.AddSingleton<IRepositoryBasic<Show>, ShowRepository>();
+            services.AddSingleton<IRepositoryBasic<Video>, VideoRepository>();
+
+            // services.AddSingleton<IRepository<Movie>>(_ => DataServiceFactory.GetRepositoryInstance<Movie, Repository<Movie>>());
             // services.AddSingleton<IRepositoryBasic, ShowRepository>();
             // services.AddSingleton<IRepositoryBasic, VideoRepository>();
 

@@ -12,15 +12,11 @@ namespace A6_MovieLib_Abstract.Models
     {
         // private int id { get; set; }
         // private string title { get; set; }
-        private string genres { get; set; }
+        public string genres { get; set; }
 
         public List<Movie> movie { get; set; }
 
         private const string filePath = "Data/moviesTrunc.csv";
-        
-        // private List<int> _ids = new List<int>();
-        // private List<string> _titles = new List<string>();
-        // private List<string> _genres = new List<string>();
 
         public Movie(int id, string title, string genres)
         {
@@ -51,12 +47,7 @@ namespace A6_MovieLib_Abstract.Models
                     // movie details are separated with comma(,)
                     string[] details = line.Split(',');
 
-                    // _ids.Add(int.Parse(details[0]));
-                    // _titles.Add(details[1]);
-                    // _genres.Add(details[2].Replace("|", ", "));
-
                     movie.Add(new Movie(int.Parse(details[0]), details[1], details[2].Replace("|", ", ")));
-                    // movie.Add(new Movie( int.Parse(details[0]), details[1]));
                 }
 
                 // close file when done
@@ -67,13 +58,6 @@ namespace A6_MovieLib_Abstract.Models
             {
                 throw new IOException();
             }
-        }
-
-        public List<Media> ReadToList()
-        {
-            List<Media> list = new List<Media>();
-            list.AddRange(movie);
-            return list;
         }
 
         public override string Display()

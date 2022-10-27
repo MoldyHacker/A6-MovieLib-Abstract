@@ -20,22 +20,22 @@ namespace A6_MovieLib_Abstract.Dao
 
         public Context()
         {
-            // var movies = _movie.ReadToList();
-            Movies = new List<Media>()
-            {
-                new Movie { id = 1, title = "Toy Story" },
-                new Movie { id = 2, title = "Toy Story 2" },
-                new Movie { id = 3, title = "Toy Story 3" }
-            };
+            // Movies = new List<Media>()
+            // {
+            //     new Movie { id = 1, title = "Toy Story" },
+            //     new Movie { id = 2, title = "Toy Story 2" },
+            //     new Movie { id = 3, title = "Toy Story 3" }
+            // };
 
-            // Movies = new List<Media>();
-            // Movies.AddRange((IEnumerable<Media>)_movie.movie);
+            Movies = new List<Media>();
+            Movies.AddRange(_movie.movie);
 
 
 
 
             Shows = new List<Media>();
-            Shows.AddRange((IEnumerable<Media>)_show.show);
+            Shows.AddRange(_show.show);
+
             // {
             //     new Show { id = 1, title = "Bobs Burgers" },
             //     new Show { id = 2, title = "Bobs Burgers 1" },
@@ -43,7 +43,7 @@ namespace A6_MovieLib_Abstract.Dao
             // };
 
             Videos = new List<Media>();
-            Videos.AddRange((IEnumerable<Media>)_video.video);
+            Videos.AddRange(_video.video);
 
 
         }
@@ -58,7 +58,7 @@ namespace A6_MovieLib_Abstract.Dao
                 if (property.Name.Contains(type.Name))
                 {
                     var value = property.GetValue(this, null);
-                    return (List<T>)value;
+                    return ((List<T>)value);
                 }
             }
 

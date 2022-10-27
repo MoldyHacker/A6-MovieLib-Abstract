@@ -7,7 +7,7 @@ using A6_MovieLib_Abstract.Models;
 
 namespace A6_MovieLib_Abstract.Dao
 {
-    public class VideoRepository : IRepositoryBasic
+    public class VideoRepository : IRepositoryBasic<Video>
     {
         private Context _context;
 
